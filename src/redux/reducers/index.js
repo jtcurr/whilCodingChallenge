@@ -1,21 +1,18 @@
 const defaults = {
-  redditData: [
-    {
-      data:{
-        children: []
-      }
-    }
-  ],
-  postClicked: false,
+  redditData: [],
   postData: null
 };
 
-export default function chatReducer(state = defaults, action) {
+export default function dataReducer(state = defaults, action) {
   switch(action.type) {
-    case 'DEAFULT_CHAT_GROUP': {
+    case 'REDDIT_DATA_RECEIVED': {
       return { ...state, 
-      	defaultGroupName : action.payload.defaultGroupName,
-      	defaultGroupKey : action.payload.defaultGroupKey,
+        redditData: action.payload.redditData,
+      };
+    }
+    case 'POST_CLICKED': {
+      return { ...state, 
+        postData: action.payload.postData,
       };
     }
   }

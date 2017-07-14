@@ -2,25 +2,17 @@ import React from 'react';
 import { Text, View, TouchableHighlight } from 'react-native';
 import ItemComponent from './ItemComponent';
 
-export default class ListView extends React.Component {
+export default class ListComponent extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			redditData: [
-				{
-					data:{
-						children: []
-					}
-				}
-			],
-			postClicked: false,
+			redditData: [],
 			postData: null
 		}
 	}
 
 	_onButtonClick(data) {
 		this.setState({
-			postClicked: true,
 			postData: data
 		})
 	}
