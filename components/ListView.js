@@ -8,7 +8,8 @@ export default class ListView extends React.Component {
 		this.state = {
 			redditData: [
 				{
-					data: {
+					data:{
+						children: []
 					}
 				}
 			],
@@ -27,7 +28,7 @@ export default class ListView extends React.Component {
 	componentDidMount() {
 		return fetch('https://www.reddit.com/.json').then((response) => {
 			this.setState({
-				redditData: JSON.parse(response['_bodyInit']).data.children
+				redditData: JSON.parse(response['_bodyText']).data.children
 			})
 		})
 	}
@@ -35,12 +36,12 @@ export default class ListView extends React.Component {
   render() {
   	const thisHolder = this;
     let listItems = this.state.redditData.map(function(item, key) {
-      return (
-        <TouchableHighlight key={key} onPress={() => thisHolder._onButtonClick(item.data)}>
-          <Text>{item.data.title}</Text>
-        </TouchableHighlight>
-      );
-    });
+          return (
+            <TouchableHighlight key={key} onPress={() => thisHolder._onButtonClick(item.data)}>
+              <Text>{ item.data.title }</Text>
+            </TouchableHighlight>
+          );
+         });
 
     if(this.state.postData) {
     	return <ItemComponent data={this.state.postData} />

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, TouchableHighlight } from 'react-native';
+import { View, TouchableHighlight, Text, Image } from 'react-native';
 
 export default class ItemComponent extends React.Component {
 	constructor(props) {
@@ -9,10 +9,27 @@ export default class ItemComponent extends React.Component {
 	render() {
 		return (
 			<View>
-				{this.props.title}
-				{this.props.author}
-				{this.props.id}
-				{this.props.selftext}
+				<Text>
+					Title: { this.props.data.title }
+				</Text>
+				<Text>
+					Author: { this.props.data.author }
+				</Text>
+				<Text>
+					Id: { this.props.data.id }
+				</Text>
+				<Text>
+					Ups: { this.props.data.ups }
+				</Text>
+				<Text>
+					Downs: { this.props.data.downs }
+				</Text>
+				<Text>
+					Subreddit: { this.props.data.subreddit }
+				</Text>
+				<Text>
+					Created: { this.props.data.created }
+				</Text>
 			</View>
 		)
 	}
