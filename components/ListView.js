@@ -12,13 +12,15 @@ export default class ListView extends React.Component {
 					}
 				}
 			],
-			postClicked: false
+			postClicked: false,
+			postData: null
 		}
 	}
 
-	_onButtonClick() {
+	_onButtonClick(data) {
     this.setState({
-    	postClicked: true
+    	postClicked: true,
+    	postData: data
     })
   }
 
@@ -31,18 +33,19 @@ export default class ListView extends React.Component {
 	}
 
   render() {
-  	var thisHolder = this;
-    var listItems = this.state.redditData.map(function(item, key) {
+  	const thisHolder = this;
+    let listItems = this.state.redditData.map(function(item, key) {
       return (
-        <TouchableHighlight key={key} onPress={thisHolder._onButtonClick}>
+        <TouchableHighlight key={key} onPress={() => thisHolder._onButtonClick(item.data)}>
           <Text>{item.data.title}</Text>
         </TouchableHighlight>
       );
     });
-    return (
-        <View>
-          {listItems}
-        </View>
-    );
+
+    if(this.state.postData) {
+    	return <ItemComponent data={this.state.postData} />
+    } else {
+    	return <View>{ listItems }</View>
+    }
   }
 }
