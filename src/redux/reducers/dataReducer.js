@@ -1,5 +1,5 @@
 const defaults = {
-  redditData: ['asdfasf'],
+  redditData: [],
   postData: null
 };
 
