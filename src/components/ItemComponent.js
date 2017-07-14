@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 
 @connect((store)=> {
 	return {
-		redditData: store.data.redditData,
 		postData: store.data.postData
 	}
 })
@@ -14,7 +13,6 @@ import { connect } from 'react-redux';
 export default class ItemComponent extends React.Component {
 
 	render() {
-		const thisHolder = this;
 		return (
 			<View>
 				<Text>
