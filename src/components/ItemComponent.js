@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, TouchableHighlight, Text, Button } from 'react-native';
 import store from '../redux/store';
-import { redditData, postData} from '../redux/actions/dataActions';
+import { postData} from '../redux/actions/dataActions';
 import { connect } from 'react-redux';
 
 @connect((store)=> {
@@ -38,7 +38,7 @@ export default class ItemComponent extends React.Component {
 				<Text>
 					Created: { this.props.postData.created }
 				</Text>
-				<Button onPress={ postData(null) } title="Go Back" />
+				<Button onPress={ () => postData(null) } title="Go Back" />
 			</View>
 		)
 	}

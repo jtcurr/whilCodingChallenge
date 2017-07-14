@@ -32,7 +32,6 @@ export class ListComponent extends React.Component {
 	render() {
 		//Variable to control 'if' binding
 		const thisHolder = this;
-		console.log(this.props.apiData)
 		let listItems = this.props.apiData.map(function(item, key) {
 					return (
 						<TouchableHighlight key={key} onPress={() => thisHolder._onButtonClick(item.data)}>
@@ -42,7 +41,7 @@ export class ListComponent extends React.Component {
 				});
 		//Checks to see if postData from Reddit has been assigned
 		if(this.props.postData) {
-			return <ItemComponent data={ this.state.postData } return={ this._goBack.bind(this) } />
+			return <ItemComponent  />
 		} else {
 			return <View>{ listItems }</View>
 		}

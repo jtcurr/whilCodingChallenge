@@ -1,7 +1,6 @@
 const defaults = {
   apiData: [],
-  postData: null,
-  test: 'moots'
+  postData: null
 };
 
 export default function dataReducer(state = defaults, action) {
