@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Text, View, TouchableHighlight, StyleSheet, AppRegistry } from 'react-native';
-import { StackNavigator } from 'react-navigation';
+import { Text, View, TouchableHighlight, StyleSheet } from 'react-native';
 import ItemComponent from './ItemComponent';
 import store from '../redux/store';
 import { redditData, postData} from '../redux/actions/dataActions';
@@ -14,10 +13,6 @@ import { redditData, postData} from '../redux/actions/dataActions';
 })
 
 export class ListComponent extends React.Component {
-
-  static navigationOptions = {
-    title: 'Navigation Options!',
-  };
 
 //Runs reducer to update store with specific post data
 	_onButtonClick(data) {
