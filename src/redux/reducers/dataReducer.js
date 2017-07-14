@@ -1,18 +1,19 @@
 const defaults = {
-  redditData: [],
-  postData: null
+  apiData: [],
+  postData: null,
+  test: 'moots'
 };
 
 export default function dataReducer(state = defaults, action) {
   switch(action.type) {
     case 'REDDIT_DATA_RECEIVED': {
       return { ...state, 
-        redditData: action.payload.redditData,
+        apiData: action.payload,
       };
     }
     case 'POST_CLICKED': {
       return { ...state, 
-        postData: action.payload.postData,
+        postData: action.payload,
       };
     }
   }

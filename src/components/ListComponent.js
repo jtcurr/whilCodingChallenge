@@ -7,8 +7,9 @@ import { redditData, postData} from '../redux/actions/dataActions';
 
 @connect((store)=> {
 	return {
-		redditData: store.data.redditData,
-		postData: store.data.postData
+		apiData: store.data.apiData,
+		postData: store.data.postData,
+		test: store.data.test
 	}
 })
 
@@ -31,7 +32,8 @@ export class ListComponent extends React.Component {
 	render() {
 		//Variable to control 'if' binding
 		const thisHolder = this;
-		let listItems = this.props.redditData.map(function(item, key) {
+		console.log(this.props.apiData)
+		let listItems = this.props.apiData.map(function(item, key) {
 					return (
 						<TouchableHighlight key={key} onPress={() => thisHolder._onButtonClick(item.data)}>
 							<Text>{ item.data.title }</Text>

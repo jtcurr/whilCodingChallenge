@@ -1,37 +1,44 @@
 import React from 'react';
 import { View, TouchableHighlight, Text, Button } from 'react-native';
+import store from '../redux/store';
+import { redditData, postData} from '../redux/actions/dataActions';
+import { connect } from 'react-redux';
+
+@connect((store)=> {
+	return {
+		redditData: store.data.redditData,
+		postData: store.data.postData
+	}
+})
 
 export default class ItemComponent extends React.Component {
-	constructor(props) {
-		super(props)
-	}
 
 	render() {
 		const thisHolder = this;
 		return (
 			<View>
 				<Text>
-					Title: { this.props.data.title }
+					Title: { this.props.postData.title }
 				</Text>
 				<Text>
-					Author: { this.props.data.author }
+					Author: { this.props.postData.author }
 				</Text>
 				<Text>
-					Id: { this.props.data.id }
+					Id: { this.props.postData.id }
 				</Text>
 				<Text>
-					Ups: { this.props.data.ups }
+					Ups: { this.props.postData.ups }
 				</Text>
 				<Text>
-					Downs: { this.props.data.downs }
+					Downs: { this.props.postData.downs }
 				</Text>
 				<Text>
-					Subreddit: { this.props.data.subreddit }
+					Subreddit: { this.props.postData.subreddit }
 				</Text>
 				<Text>
-					Created: { this.props.data.created }
+					Created: { this.props.postData.created }
 				</Text>
-				<Button onPress={ thisHolder.props.return } title="Go Back" />
+				<Button onPress={ postData(null) } title="Go Back" />
 			</View>
 		)
 	}
