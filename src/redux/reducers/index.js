@@ -1,20 +1,8 @@
-const defaults = {
-  redditData: [],
-  postData: null
-};
+import { combineReducers } from 'redux';
+import data from './dataReducer';
 
-export default function dataReducer(state = defaults, action) {
-  switch(action.type) {
-    case 'REDDIT_DATA_RECEIVED': {
-      return { ...state, 
-        redditData: action.payload.redditData,
-      };
-    }
-    case 'POST_CLICKED': {
-      return { ...state, 
-        postData: action.payload.postData,
-      };
-    }
-  }
-  return state;
-};
+const reducer = combineReducers({
+  data
+})
+
+export default reducer;

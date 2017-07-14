@@ -1,8 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Text, View, TouchableHighlight } from 'react-native';
 import ItemComponent from './ItemComponent';
+import store from '../redux/store';
 
-export default class ListComponent extends React.Component {
+export class ListComponent extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -14,6 +16,12 @@ export default class ListComponent extends React.Component {
 	_onButtonClick(data) {
 		this.setState({
 			postData: data
+		})
+	}
+
+	_goBack() {
+		this.setState({
+			postData: null
 		})
 	}
 
@@ -37,9 +45,16 @@ export default class ListComponent extends React.Component {
 				});
 		//Checks to see if postData from Reddit has been assigned
 		if(this.state.postData) {
-			return <ItemComponent data={ this.state.postData } />
+			return <ItemComponent data={ this.state.postData } return={ this._goBack.bind(this) } />
 		} else {
 			return <View>{ listItems }</View>
 		}
 	}
 }
+
+// export default connect((store) => {
+//   return {
+//     redditData: store.redditData,
+//     postData: store.postData,
+//   };
+// })(ListComponent);

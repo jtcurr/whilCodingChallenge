@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, TouchableHighlight, Text, Image } from 'react-native';
+import { View, TouchableHighlight, Text, Button } from 'react-native';
 
 export default class ItemComponent extends React.Component {
 	constructor(props) {
@@ -7,6 +7,7 @@ export default class ItemComponent extends React.Component {
 	}
 
 	render() {
+		const thisHolder = this;
 		return (
 			<View>
 				<Text>
@@ -30,6 +31,7 @@ export default class ItemComponent extends React.Component {
 				<Text>
 					Created: { this.props.data.created }
 				</Text>
+				<Button onPress={ thisHolder.props.return } title="Go Back" />
 			</View>
 		)
 	}
