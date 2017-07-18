@@ -22,15 +22,6 @@ export default class ItemComponent extends React.Component {
 					Author: { this.props.postData.author }
 				</Text>
 				<Text>
-					Id: { this.props.postData.id }
-				</Text>
-				<Text>
-					Ups: { this.props.postData.ups }
-				</Text>
-				<Text>
-					Downs: { this.props.postData.downs }
-				</Text>
-				<Text>
 					Subreddit: { this.props.postData.subreddit }
 				</Text>
 				<Text>
